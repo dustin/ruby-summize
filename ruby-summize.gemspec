@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name = "summize"
+  s.name = "ruby-summize"
   s.version = "0.1"
   s.date = "2008-07-04"
   s.summary = "Ruby client for summize."
