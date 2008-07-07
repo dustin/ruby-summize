@@ -29,16 +29,28 @@ module Summize
 
   end
 
-  def self.query(text)
-    self.runquery('q=' + URI.escape(text))
-  end
+  class Client
 
-  private
+    def initialize(agent="ruby-summize")
+      @agent=agent
+    end
 
-  def self.runquery(query)
-    url = URI.parse 'http://summize.com/search.json'
-    url.query = query
-    Results.new(JSON.parse(Net::HTTP.get(url)))
+    def query(text, opts={})
+      runquery(mk_querystring(opts.merge({'q' => text})))
+    end
+
+    private
+
+    def mk_querystring(h)
+      h.map{|k,v| URI.escape(k.to_s) + "=" + URI.escape(v.to_s)}.join("&")
+    end
+
+    def runquery(query_str)
+      url = URI.parse 'http://summize.com/search.json'
+      url.query = query_str
+      Results.new(JSON.parse(Net::HTTP.get(url)))
+    end
+
   end
 
 end
