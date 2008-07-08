@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "ruby-summize"
-  s.version = "0.2"
+  s.version = "0.3"
   s.date = "2008-07-04"
   s.summary = "Ruby client for summize."
   s.email = "dustin@spy.net"
