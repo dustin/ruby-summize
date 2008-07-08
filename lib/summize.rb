@@ -5,9 +5,11 @@ require 'json'
 module Summize
 
   class Result
-    VARS = [:text, :from_user, :created_at, :language, :id]
+    VARS = [:text, :from_user, :created_at, :id]
     attr_reader *VARS
+    attr_reader :language
     def initialize(h)
+      @language = h['iso_language_code']
       VARS.each { |v| instance_variable_set "@#{v}", h[v.to_s] }
     end
   end
