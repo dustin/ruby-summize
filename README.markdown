@@ -4,5 +4,6 @@
 
     require 'summize'
 
-    r = Summize.query 'search query'
+	client = Summize::Client.new 'my-user-argent'
+    r = client.query 'search query'
     r.each { |i| puts "#{i.text}" }
