@@ -29,6 +29,10 @@ module Summize
       @results.each(&block)
     end
 
+    def size
+      @results.size
+    end
+
   end
 
   class Client
