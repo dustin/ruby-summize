@@ -52,7 +52,7 @@ module Summize
     end
 
     def runquery(query_str)
-      url = URI.parse 'http://summize.com/search.json'
+      url = URI.parse 'http://search.twitter.com/search.json'
       url.query = query_str
       Results.new(JSON.parse(Net::HTTP.get(url)))
     end
